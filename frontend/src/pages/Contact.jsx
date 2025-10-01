@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import Contact from "../components/ContactUs";
+import Footer from "../components/Footer";
+import Navbar from "../components/nav";
+import WhatsAppButton from "../components/whatsapp";
+import ChatWidget from "../components/chatwidget";
 
-function Contact() {
+function AboutUs() {
   return (
-    <div>Contact</div>
-  )
+    <div>
+      <Navbar />
+      <Contact />
+      <ChatWidget />
+      <Footer />
+      <WhatsAppButton />
+    </div>
+  );
 }
 
-export default Contact
+export default AboutUs;

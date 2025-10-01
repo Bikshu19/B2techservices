@@ -97,21 +97,18 @@ const Navbar = () => {
               }`}
             >
               <ul className="py-2">
-                {[
-                  "companyphilosopy",
-                  "corevalues",
-                  "founder's Vision",
-                  "Growth Journey",
-                ].map((item) => (
-                  <li key={item}>
-                    <Link
-                      to={`/${item}`}
-                      className="block px-4 py-3 font-medium text-[#1E93AB] hover:text-red-500 hover:bg-white/20 transition cursor-pointer"
-                    >
-                      {item.charAt(0).toUpperCase() + item.slice(1)}
-                    </Link>
-                  </li>
-                ))}
+                {["companyphilosopy", "corevalues", "founder", "Growth"].map(
+                  (item) => (
+                    <li key={item}>
+                      <Link
+                        to={`/${item}`}
+                        className="block px-4 py-3 font-medium text-[#1E93AB] hover:text-red-500 hover:bg-white/20 transition cursor-pointer"
+                      >
+                        {item.charAt(0).toUpperCase() + item.slice(1)}
+                      </Link>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </div>
@@ -210,18 +207,21 @@ const Navbar = () => {
               }`}
             >
               <ul className="bg-white/20 backdrop-blur-md rounded-lg border border-white/30">
-                {["companyphilosopy", "corevalues", "founder's Vision", "Growth Journey"].map(
-                  (item) => (
-                    <li key={item}>
-                      <Link
-                        to={`/${item}`}
-                        className="block px-4 py-3 font-medium text-[#1E93AB] hover:text-red-500 hover:bg-white/20 transition cursor-pointer"
-                      >
-                        {item.charAt(0).toUpperCase() + item.slice(1)}
-                      </Link>
-                    </li>
-                  )
-                )}
+                {[
+                  "companyphilosopy",
+                  "corevalues",
+                  "founder's Vision",
+                  "Growth Journey",
+                ].map((item) => (
+                  <li key={item}>
+                    <Link
+                      to={`/${item}`}
+                      className="block px-4 py-3 font-medium text-[#1E93AB] hover:text-red-500 hover:bg-white/20 transition cursor-pointer"
+                    >
+                      {item.charAt(0).toUpperCase() + item.slice(1)}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
