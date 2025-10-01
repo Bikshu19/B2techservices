@@ -31,13 +31,13 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/companyphilosopy' element={<Companyphilosophy/>}/>
         <Route path='/corevalues' element={<Corevalues/>}/>
-        <Route path='/founder' element={<Founder/>}/>
-        <Route path='/Growth' element={<Growth/>}/>
+        <Route path='/founders Vision' element={<Founder/>}/>
+        <Route path='/Growth Journey' element={<Growth/>}/>
         <Route path='/recruitmentservice' element={<Recruitmentservice/>}/>
         <Route path='/resumeservices' element={<Resumeservices/>}/>
         <Route path='/softwaretraining' element={<SoftwareTraining/>}/>
-        <Route path='/ui' element={<Ui/>}/>
-        <Route path='/whatssets' element={<Whatssets/>}/>
+        <Route path='/UI/UX Design Thinking' element={<Ui/>}/>
+        <Route path='/what sets Us Apart' element={<Whatssets/>}/>
 
         {/* */}
         <Route path="/sendotp" element={<Sendotp />} />

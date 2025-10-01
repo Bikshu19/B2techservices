@@ -104,6 +104,7 @@ const Navbar = () => {
                   "corevalues",
                   "founder's Vision",
                   "Growth Journey",
+                 
                 ].map((item) => (
                   <li key={item}>
                     <Link
@@ -165,7 +166,7 @@ const Navbar = () => {
 
             <div
               className={`overflow-hidden transition-all duration-300 ${
-                openDropdown === "services" ? "max-h-[200px] mt-2" : "max-h-0"
+                openDropdown === "services" ? "max-h-[300px] mt-2" : "max-h-0"
               }`}
             >
               <ul className="bg-white/20 backdrop-blur-md rounded-lg border border-white/30">
@@ -173,8 +174,8 @@ const Navbar = () => {
                   "recruitmentservice",
                   "resumeservices",
                   "softwaretraining",
-                  "ui",
-                  "whatssets",
+                  "UI/UX Design Thinking",
+                  "what sets Us Apart",
                 ].map((item) => (
                   <li key={item}>
                     <Link
@@ -212,7 +213,7 @@ const Navbar = () => {
               }`}
             >
               <ul className="bg-white/20 backdrop-blur-md rounded-lg border border-white/30">
-                {["companyphilosopy", "corevalues", "founder", "Growth"].map(
+                {["companyphilosopy", "corevalues", "founder's Vision", "Growth Journey"].map(
                   (item) => (
                     <li key={item}>
                       <Link
