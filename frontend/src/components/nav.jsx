@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-// Flash component
-import Flash from "../components/Homepage/flash";
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -239,11 +237,6 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-      </div>
-
-      {/* ✅ Flash news below Navbar */}
-      <div className="relative z-40">
-        <Flash />
       </div>
     </nav>
   );
