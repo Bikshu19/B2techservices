@@ -12,7 +12,6 @@ import ChatWidget from '../components/chatwidget';
 import Footer from '../components/Footer';
 import Achieve from '../components/Homepage/achievements';
 import { motion } from 'framer-motion';
-import Nav from '../components/nav'
 
 function Homepage() {
   useEffect(() => {
@@ -27,7 +26,7 @@ function Homepage() {
   return (
     <div className="relative">
       <Herosection>
-        <Navbar />
+      
       </Herosection>
 
       <motion.div

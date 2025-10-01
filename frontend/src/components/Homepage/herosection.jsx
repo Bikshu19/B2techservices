@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Users, Award, Smile } from "lucide-react";
-import Navbar from "../Navbar";
+import Navbar from "../../components/Navbar";
 import Textani from "./textanimations"
+import {Link} from 'react-router-dom'
 
 function Counter({ from = 0, to }) {
   const count = useMotionValue(from);
@@ -76,7 +77,7 @@ function Herosection() {
   transition={{ duration: 0.8, delay: 0.6 }}
 >
   <span className="flex items-center gap-2">
-    Explore
+    <Link to='/recruitmentservice'>Explore</Link>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="h-5 w-5"
