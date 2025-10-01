@@ -95,18 +95,15 @@ const Navbar = () => {
               }`}
             >
               <ul className="py-2">
-                {[
-                  "companyphilosopy",
-                  "corevalues",
-                  "founder's Vision",
-                  "Growth Journey",
-                ].map((item) => (
-                  <Link to={`/${item}`} key={item} className="cursor-pointer">
-                    <li className="px-4 py-3 font-medium text-[#1E93AB] hover:text-red-500 hover:bg-white/20 transition cursor-pointer">
-                      {item.charAt(0).toUpperCase() + item.slice(1)}
-                    </li>
-                  </Link>
-                ))}
+                {["companyphilosopy", "corevalues", "founder", "Growth"].map(
+                  (item) => (
+                    <Link to={`/${item}`} key={item} className="cursor-pointer">
+                      <li className="px-4 py-3 font-medium text-[#1E93AB] hover:text-red-500 hover:bg-white/20 transition cursor-pointer">
+                        {item.charAt(0).toUpperCase() + item.slice(1)}
+                      </li>
+                    </Link>
+                  )
+                )}
               </ul>
             </div>
           </div>
