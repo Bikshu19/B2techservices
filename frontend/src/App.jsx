@@ -32,7 +32,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/expertise" element={<Expertise />} />
+          <Route path="/Expertise" element={<Expertise />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/companyphilosopy" element={<Companyphilosophy />} />
           <Route path="/corevalues" element={<Corevalues />} />
