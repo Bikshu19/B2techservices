@@ -11,11 +11,14 @@ export default function VerifyOtp() {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/verifyotp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ otp }),
-      });
+      const res = await fetch(
+        "https://b2techservices-2.onrender.com/api/auth/verifyotp",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ otp }),
+        }
+      );
 
       const data = await res.json();
       if (res.ok && data.token) {
@@ -50,7 +53,9 @@ export default function VerifyOtp() {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">Verify Your Identity</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              Verify Your Identity
+            </h2>
             <p className="text-white text-sm opacity-90">
               Enter the verification code sent to your email
             </p>

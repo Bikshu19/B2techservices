@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-export default function AchievementForm({ token, achievements, setAchievements, editing, setEditing }) {
+export default function AchievementForm({
+  token,
+  achievements,
+  setAchievements,
+  editing,
+  setEditing,
+}) {
   const [formTitle, setFormTitle] = useState("");
   const [formDescription, setFormDescription] = useState("");
   const [formDate, setFormDate] = useState("");
@@ -31,12 +37,16 @@ export default function AchievementForm({ token, achievements, setAchievements, 
     if (formImage) formData.append("image", formImage);
 
     const url = editing
-      ? `http://localhost:5000/news/achievements/${editing._id}`
-      : "http://localhost:5000/news/achievements";
+      ? `https://b2techservices-2.onrender.com/news/achievements/${editing._id}`
+      : "https://b2techservices-2.onrender.com/news/achievements";
     const method = editing ? "PUT" : "POST";
 
     try {
-      const res = await fetch(url, { method, headers: { Authorization: `Bearer ${token}` }, body: formData });
+      const res = await fetch(url, {
+        method,
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData,
+      });
       const data = await res.json();
       if (res.ok) {
         setAchievements(data.achievements || [data.achievement]);
@@ -86,21 +96,36 @@ export default function AchievementForm({ token, achievements, setAchievements, 
               onClick={() => setEditing(null)}
               className="text-gray-500 hover:text-gray-700 transition-colors"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           )}
         </div>
         <p className="text-sm text-gray-600 mt-1 ml-13">
-          {editing ? "Update the details below" : "Fill in the details to create a new achievement"}
+          {editing
+            ? "Update the details below"
+            : "Fill in the details to create a new achievement"}
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Title Input */}
         <div>
-          <label htmlFor="title" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+          <label
+            htmlFor="title"
+            className="block text-[#0a1f44] text-sm font-semibold mb-2"
+          >
             Title <span className="text-red-500">*</span>
           </label>
           <input
@@ -116,7 +141,10 @@ export default function AchievementForm({ token, achievements, setAchievements, 
 
         {/* Description Textarea */}
         <div>
-          <label htmlFor="description" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+          <label
+            htmlFor="description"
+            className="block text-[#0a1f44] text-sm font-semibold mb-2"
+          >
             Description <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -131,7 +159,10 @@ export default function AchievementForm({ token, achievements, setAchievements, 
 
         {/* Date Input */}
         <div>
-          <label htmlFor="date" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+          <label
+            htmlFor="date"
+            className="block text-[#0a1f44] text-sm font-semibold mb-2"
+          >
             Date
           </label>
           <input
@@ -145,14 +176,27 @@ export default function AchievementForm({ token, achievements, setAchievements, 
 
         {/* Image Upload */}
         <div>
-          <label htmlFor="image" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+          <label
+            htmlFor="image"
+            className="block text-[#0a1f44] text-sm font-semibold mb-2"
+          >
             Image
           </label>
           <div className="flex items-center space-x-4">
             <label className="flex-1 cursor-pointer">
               <div className="border-2 border-dashed border-gray-300 rounded-lg px-4 py-3 hover:border-[#00809D] transition-colors flex items-center justify-center bg-gray-50">
-                <svg className="w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <svg
+                  className="w-5 h-5 text-gray-500 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
                 </svg>
                 <span className="text-sm text-gray-600">
                   {formImage ? formImage.name : "Choose an image"}
@@ -188,8 +232,18 @@ export default function AchievementForm({ token, achievements, setAchievements, 
             type="submit"
             className="flex-1 bg-[#00809D] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#006b85] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
             </svg>
             {editing ? "Update Achievement" : "Add Achievement"}
           </button>

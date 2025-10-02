@@ -11,7 +11,10 @@ export default function Achievements({ token }) {
   useEffect(() => {
     const fetchAchievements = async () => {
       try {
-        const res = await fetch("http://localhost:5000/news/achievements", { headers });
+        const res = await fetch(
+          "https://b2techservices-2.onrender.com/news/achievements",
+          { headers }
+        );
         if (res.ok) {
           const data = await res.json();
           setAchievements(data.achievements || []);
@@ -20,7 +23,7 @@ export default function Achievements({ token }) {
         console.error(err);
       }
     };
-    if (token) fetchAchievements();  // Fetch immediately
+    if (token) fetchAchievements(); // Fetch immediately
   }, [token]);
 
   return (
@@ -45,7 +48,9 @@ export default function Achievements({ token }) {
           </div>
           <div>
             <h2 className="text-xl font-bold text-white">Achievements</h2>
-            <p className="text-white text-sm opacity-90">Manage your accomplishments</p>
+            <p className="text-white text-sm opacity-90">
+              Manage your accomplishments
+            </p>
           </div>
         </div>
       </div>

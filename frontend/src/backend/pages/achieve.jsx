@@ -19,7 +19,10 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:5000/news/flashnews", { headers });
+        const res = await fetch(
+          "https://b2techservices-2.onrender.com/news/flashnews",
+          { headers }
+        );
         if (res.ok) {
           const data = await res.json();
           setFlashnews(data.flashnews || "");
@@ -35,12 +38,14 @@ export default function Dashboard() {
   // ------------------ Flashnews Save ------------------
   const saveFlashnews = async () => {
     try {
-      await fetch("http://localhost:5000/news/flashnews", {
+      await fetch("https://b2techservices-2.onrender.com/news/flashnews", {
         method: "PUT",
         headers: { ...headers, "Content-Type": "application/json" },
-        body: JSON.stringify({ flashnews })
+        body: JSON.stringify({ flashnews }),
       });
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   // ------------------ Achievement Handlers ------------------
@@ -53,28 +58,39 @@ export default function Dashboard() {
     if (formImage) formData.append("image", formImage);
 
     const url = editing
-      ? `http://localhost:5000/news/achievements/${editing._id}`
-      : "http://localhost:5000/news/achievements";
+      ? `https://b2techservices-2.onrender.com/news/achievements/${editing._id}`
+      : "https://b2techservices-2.onrender.com/news/achievements";
     const method = editing ? "PUT" : "POST";
 
     try {
-      const res = await fetch(url, { method, headers: { Authorization: `Bearer ${token}` }, body: formData });
+      const res = await fetch(url, {
+        method,
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData,
+      });
       const data = await res.json();
       if (res.ok) {
         setAchievements(data.achievements || [data.achievement]);
         resetForm();
       } else console.error(data.message);
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/news/achievements/${id}`, {
-        method: "DELETE",
-        headers
-      });
+      const res = await fetch(
+        `https://b2techservices-2.onrender.com/news/achievements/${id}`,
+        {
+          method: "DELETE",
+          headers,
+        }
+      );
       if (res.ok) setAchievements((prev) => prev.filter((a) => a._id !== id));
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleEdit = (achievement) => {
@@ -123,7 +139,10 @@ export default function Dashboard() {
               </div>
             </div>
             <button
-              onClick={() => { logout(); window.location.reload(); }}
+              onClick={() => {
+                logout();
+                window.location.reload();
+              }}
               className="bg-white border-2 border-red-500 text-red-500 px-5 py-2.5 rounded-lg font-semibold hover:bg-red-500 hover:text-white transition-all duration-200 shadow-sm hover:shadow-md flex items-center"
             >
               <svg
@@ -246,11 +265,13 @@ export default function Dashboard() {
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-white">Achievements</h2>
-                  <p className="text-white text-sm opacity-90">Manage your accomplishments</p>
+                  <p className="text-white text-sm opacity-90">
+                    Manage your accomplishments
+                  </p>
                 </div>
               </div>
             </div>
-            
+
             <div className="p-6 space-y-6">
               {/* Achievement Form */}
               <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-lg shadow-md p-6">
@@ -282,20 +303,35 @@ export default function Dashboard() {
                         onClick={resetForm}
                         className="text-gray-500 hover:text-gray-700 transition-colors"
                       >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
                         </svg>
                       </button>
                     )}
                   </div>
                   <p className="text-sm text-gray-600 mt-1 ml-13">
-                    {editing ? "Update the details below" : "Fill in the details to create a new achievement"}
+                    {editing
+                      ? "Update the details below"
+                      : "Fill in the details to create a new achievement"}
                   </p>
                 </div>
 
                 <form onSubmit={handleAchievementSubmit} className="space-y-5">
                   <div>
-                    <label htmlFor="title" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="title"
+                      className="block text-[#0a1f44] text-sm font-semibold mb-2"
+                    >
                       Title <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -310,7 +346,10 @@ export default function Dashboard() {
                   </div>
 
                   <div>
-                    <label htmlFor="description" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="description"
+                      className="block text-[#0a1f44] text-sm font-semibold mb-2"
+                    >
                       Description <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -324,7 +363,10 @@ export default function Dashboard() {
                   </div>
 
                   <div>
-                    <label htmlFor="date" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="date"
+                      className="block text-[#0a1f44] text-sm font-semibold mb-2"
+                    >
                       Date
                     </label>
                     <input
@@ -337,14 +379,27 @@ export default function Dashboard() {
                   </div>
 
                   <div>
-                    <label htmlFor="image" className="block text-[#0a1f44] text-sm font-semibold mb-2">
+                    <label
+                      htmlFor="image"
+                      className="block text-[#0a1f44] text-sm font-semibold mb-2"
+                    >
                       Image
                     </label>
                     <div className="flex items-center space-x-4">
                       <label className="flex-1 cursor-pointer">
                         <div className="border-2 border-dashed border-gray-300 rounded-lg px-4 py-3 hover:border-[#00809D] transition-colors flex items-center justify-center bg-gray-50">
-                          <svg className="w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          <svg
+                            className="w-5 h-5 text-gray-500 mr-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
                           </svg>
                           <span className="text-sm text-gray-600">
                             {formImage ? formImage.name : "Choose an image"}
@@ -356,7 +411,9 @@ export default function Dashboard() {
                           accept="image/*"
                           onChange={(e) => {
                             setFormImage(e.target.files[0]);
-                            setImagePreview(URL.createObjectURL(e.target.files[0]));
+                            setImagePreview(
+                              URL.createObjectURL(e.target.files[0])
+                            );
                           }}
                           className="hidden"
                         />
@@ -364,7 +421,9 @@ export default function Dashboard() {
                     </div>
                     {imagePreview && (
                       <div className="mt-4">
-                        <p className="text-sm text-gray-600 mb-2 font-medium">Preview:</p>
+                        <p className="text-sm text-gray-600 mb-2 font-medium">
+                          Preview:
+                        </p>
                         <img
                           src={imagePreview}
                           alt="Preview"
@@ -379,8 +438,18 @@ export default function Dashboard() {
                       type="submit"
                       className="flex-1 bg-[#00809D] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#006b85] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"
                     >
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       {editing ? "Update Achievement" : "Add Achievement"}
                     </button>
@@ -414,8 +483,12 @@ export default function Dashboard() {
                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
-                    <p className="text-gray-600 font-medium">No achievements yet</p>
-                    <p className="text-gray-500 text-sm mt-1">Add your first achievement to get started</p>
+                    <p className="text-gray-600 font-medium">
+                      No achievements yet
+                    </p>
+                    <p className="text-gray-500 text-sm mt-1">
+                      Add your first achievement to get started
+                    </p>
                   </div>
                 ) : (
                   achievements.map((ach) => (
@@ -440,10 +513,14 @@ export default function Dashboard() {
                                   />
                                 </svg>
                               </div>
-                              <h3 className="text-lg font-bold text-[#0a1f44]">{ach.title}</h3>
+                              <h3 className="text-lg font-bold text-[#0a1f44]">
+                                {ach.title}
+                              </h3>
                             </div>
 
-                            <p className="text-gray-700 mb-3 ml-11">{ach.description}</p>
+                            <p className="text-gray-700 mb-3 ml-11">
+                              {ach.description}
+                            </p>
 
                             {ach.date && (
                               <div className="flex items-center text-sm text-gray-600 ml-11">
@@ -460,11 +537,14 @@ export default function Dashboard() {
                                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                                   />
                                 </svg>
-                                {new Date(ach.date).toLocaleDateString('en-US', { 
-                                  year: 'numeric', 
-                                  month: 'long', 
-                                  day: 'numeric' 
-                                })}
+                                {new Date(ach.date).toLocaleDateString(
+                                  "en-US",
+                                  {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                  }
+                                )}
                               </div>
                             )}
 

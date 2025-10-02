@@ -25,22 +25,28 @@ export default function ContactUs() {
 
   const sendOtp = async () => {
     if (!form.email) return alert("Enter email first");
-    const res = await fetch("http://localhost:5000/api/contact/send-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: form.email }),
-    });
+    const res = await fetch(
+      "https://b2techservices-2.onrender.com/api/contact/send-otp",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: form.email }),
+      }
+    );
     const data = await res.json();
     setStatus(data.message);
     if (data.success) setOtpSent(true);
   };
 
   const verifyOtp = async () => {
-    const res = await fetch("http://localhost:5000/api/contact/verify-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: form.email, otp: form.otp }),
-    });
+    const res = await fetch(
+      "https://b2techservices-2.onrender.com/api/contact/verify-otp",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: form.email, otp: form.otp }),
+      }
+    );
     const data = await res.json();
     setStatus(data.message);
     if (data.success) setVerified(true);
@@ -49,11 +55,14 @@ export default function ContactUs() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!verified) return alert("Please verify email first");
-    const res = await fetch("http://localhost:5000/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    const res = await fetch(
+      "https://b2techservices-2.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      }
+    );
     const data = await res.json();
     setStatus(data.message);
     if (data.success) setForm({ name: "", email: "", otp: "", message: "" });

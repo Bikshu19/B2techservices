@@ -1,14 +1,22 @@
 import React from "react";
 
-export default function AchievementList({ token, achievements, setAchievements, setEditing }) {
+export default function AchievementList({
+  token,
+  achievements,
+  setAchievements,
+  setEditing,
+}) {
   const headers = { Authorization: `Bearer ${token}` };
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/news/achievements/${id}`, {
-        method: "DELETE",
-        headers,
-      });
+      const res = await fetch(
+        `https://b2techservices-2.onrender.com/news/achievements/${id}`,
+        {
+          method: "DELETE",
+          headers,
+        }
+      );
       if (res.ok) setAchievements((prev) => prev.filter((a) => a._id !== id));
     } catch (err) {
       console.error(err);
@@ -37,7 +45,9 @@ export default function AchievementList({ token, achievements, setAchievements, 
             />
           </svg>
           <p className="text-gray-600 font-medium">No achievements yet</p>
-          <p className="text-gray-500 text-sm mt-1">Add your first achievement to get started</p>
+          <p className="text-gray-500 text-sm mt-1">
+            Add your first achievement to get started
+          </p>
         </div>
       ) : (
         achievements.map((ach) => (
@@ -63,7 +73,9 @@ export default function AchievementList({ token, achievements, setAchievements, 
                         />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-[#0a1f44]">{ach.title}</h3>
+                    <h3 className="text-lg font-bold text-[#0a1f44]">
+                      {ach.title}
+                    </h3>
                   </div>
 
                   {/* Description */}
@@ -85,10 +97,10 @@ export default function AchievementList({ token, achievements, setAchievements, 
                           d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                         />
                       </svg>
-                      {new Date(ach.date).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
+                      {new Date(ach.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
                       })}
                     </div>
                   )}

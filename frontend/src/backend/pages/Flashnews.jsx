@@ -7,7 +7,10 @@ export default function Flashnews({ token }) {
   useEffect(() => {
     const fetchFlashnews = async () => {
       try {
-        const res = await fetch("http://localhost:5000/news/flashnews", { headers });
+        const res = await fetch(
+          "https://b2techservices-2.onrender.com/news/flashnews",
+          { headers }
+        );
         if (res.ok) {
           const data = await res.json();
           setFlashnews(data.flashnews || "");
@@ -21,11 +24,14 @@ export default function Flashnews({ token }) {
 
   const saveFlashnews = async () => {
     try {
-      const res = await fetch("http://localhost:5000/news/flashnews", {
-        method: "PUT",
-        headers: { ...headers, "Content-Type": "application/json" },
-        body: JSON.stringify({ flashnews }),
-      });
+      const res = await fetch(
+        "https://b2techservices-2.onrender.com/news/flashnews",
+        {
+          method: "PUT",
+          headers: { ...headers, "Content-Type": "application/json" },
+          body: JSON.stringify({ flashnews }),
+        }
+      );
 
       if (res.ok) {
         alert("Saved Successfully ✅");
@@ -78,7 +84,7 @@ export default function Flashnews({ token }) {
           onChange={(e) => setFlashnews(e.target.value)}
           placeholder="Enter breaking news headline..."
         />
-        
+
         <button
           onClick={saveFlashnews}
           className="w-full bg-[#00809D] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#006b85] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center"

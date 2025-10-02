@@ -17,7 +17,7 @@ export default function SendOtp() {
 
     // Regex to match the exact pattern (case-insensitive)
     // const emailPattern = /^HRUSHIKESH@B2TECHSERVICES\.IN$/i;
-      const emailPattern = /^BIKSHAMAIAHTULLIMILLI@GMAIL\.COM$/i;
+    const emailPattern = /^BIKSHAMAIAHTULLIMILLI@GMAIL\.COM$/i;
 
     if (!emailPattern.test(email)) {
       setMessage("Email must be HRUSHIKESH@B2TECHSERVICES.IN");
@@ -25,14 +25,18 @@ export default function SendOtp() {
     }
 
     // Convert to lowercase only if the user entered it in all capital letters
-    const emailToSend = email === email.toUpperCase() ? email.toLowerCase() : email;
+    const emailToSend =
+      email === email.toUpperCase() ? email.toLowerCase() : email;
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/sendotp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: emailToSend }),
-      });
+      const res = await fetch(
+        "https://b2techservices-2.onrender.com/api/auth/sendotp",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: emailToSend }),
+        }
+      );
 
       const data = await res.json();
 
