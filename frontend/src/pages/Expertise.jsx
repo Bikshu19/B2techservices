@@ -4,6 +4,9 @@ import { useTilt } from "./useTilt";
 import Navbar from "../components/Navbar"
 import { motion } from "framer-motion";
 import { FaStar, FaHandshake, FaNetworkWired, FaRocket, FaBullseye } from "react-icons/fa";
+import WhatsAppButton from '../components/whatsapp';
+import ChatWidget from '../components/chatwidget';
+import Footer from '../components/Footer';
 
 
 const cardVariants = {
@@ -112,6 +115,9 @@ export default function B2TechExpertise() {
             B2 Tech Services specializes in recruiting and placing top-tier talent across a wide range of technology and business domains.
           </p>
         </div>
+        <div className="text-center subtitle text-[27px]">
+        <p>Technology & Business Domains</p>
+      </div>
         <div className="header-controls">
           <input
             type="text"
@@ -123,6 +129,7 @@ export default function B2TechExpertise() {
         </div>
       </header>
 
+      
 
       {/* Grid */}
       <section className="relative z-10 max-w-6xl mx-auto">
@@ -292,7 +299,11 @@ export default function B2TechExpertise() {
           </motion.div>
         </div>
       </footer>
+      
+      <ChatWidget />
+      <WhatsAppButton />
     </div>
+    <Footer />
 
 
       {/* Styles */}
@@ -347,7 +358,7 @@ export default function B2TechExpertise() {
 
         /* ---------- Header ---------- */
         .glass-header {
-          position: relative; padding: 28px 22px 26px; border-radius: 22px;
+          position: relative; padding: 28px 22px 26px; border-bottom-left-radius: 22px; border-bottom-right-radius: 22px;
           background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.35));
           backdrop-filter: blur(8px);
         }
@@ -355,19 +366,24 @@ export default function B2TechExpertise() {
         .bordered { outline: 1px solid var(--border); box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 10px 30px rgba(0,0,0,.05); }
         .heading-xl {
           font-weight: 900; font-size: clamp(28px, 4vw, 54px);
-          background: linear-gradient(90deg, var(--brand), var(--brand)); -webkit-background-clip: text; color: transparent;
+          color:#0a1f44;
         }
-        .brand-stripe { position:absolute; top:0; left:0; right:0; height:6px; background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-top-left-radius:22px; border-top-right-radius:22px; }
-        .subtext { margin-top: 12px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+        .brand-stripe { position:absolute; top:0; left:0; right:0; height:6px; background: linear-gradient(90deg, #00809D,#00809D); border-top-left-radius:22px; border-top-right-radius:22px;color:#00809D; }
+        .subtext { margin-top: 12px; color: #00809D; font-size: 16px; line-height: 1.7; }
         .header-controls { display:flex; gap:10px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
         .filter-input {
           width: min(560px, 92vw); padding: 12px 16px; border-radius: 14px; background: var(--surface);
-          color: var(--ink); outline: none; border: 1px solid var(--border); box-shadow: 0 2px 0 rgba(0,0,0,.02) inset;
+          color: #00809D; outline: none; border: 1px solid var(--border); box-shadow: 0 2px 0 rgba(0,0,0,.02) inset;
         }
         .bordered-input:focus { border-color: var(--brand); box-shadow: 0 0 0 4px var(--soft); }
         .toggle { padding: 10px 14px; border-radius: 12px; background: var(--surface); }
         .bordered-chip { border: 1px solid var(--border); color: var(--ink); }
-
+        
+        .subtitle{
+          padding-top:30px;
+          color:#0a1f44;
+          font-weight:700;
+        }
 
         /* ---------- Domain Masonry Grid ---------- */
         .domain-masonry {
@@ -507,7 +523,7 @@ export default function B2TechExpertise() {
 
         .empty-state {
           text-align: center;
-          color: var(--muted);
+          color: #00809D;
           grid-column: 1 / -1;
           padding: 2rem;
           font-size: 18px;
@@ -516,11 +532,11 @@ export default function B2TechExpertise() {
 
         /* ---------- Why Choose ---------- */
         .cap-heading { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom: 10px; flex-wrap: wrap; }
-        .cap { padding: 10px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); font-weight: 700; }
-        .cap-strong { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--border-strong); background: linear-gradient(180deg, var(--surface), var(--surface-2)); font-weight: 800; color: var(--ink); }
-        .cap-sub { text-align:center; font-size: clamp(18px, 2.2vw, 24px); color: var(--muted); margin-top: 10px; }
-        .grad-amber { background: var(--amber); -webkit-background-clip: text; color: transparent; }
-        .strong { font-weight: 800; color: var(--ink); }
+        .cap { padding: 10px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: #0a1f44; font-weight: 700; }
+        .cap-strong { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--border-strong); background: linear-gradient(180deg, var(--surface), var(--surface-2)); font-weight: 800; color: #0a1f44; }
+        .cap-sub { text-align:center; font-size: clamp(18px, 2.2vw, 24px); color: #00809D; margin-top: 10px; }
+        .grad-amber { font-weight: 800;background: var(--amber); -webkit-background-clip: text; color: #00809D; }
+        .strong { font-weight: 800; color: #00809D; }
 
 
         /* ---------- Benefits Panels ---------- */
@@ -542,9 +558,8 @@ export default function B2TechExpertise() {
         }
         .panel-head { display:flex; align-items:center; gap:12px; padding: 22px 22px 6px; position:relative; }
         .panel-icon { width:56px; height:56px; border-radius: 14px; background: linear-gradient(135deg, rgba(99,102,241,.18), rgba(124,58,237,.18)); display:flex; align-items:center; justify-content:center; font-size: 28px; border: 1px solid var(--border); }
-        .panel-title { font-size: 22px; font-weight: 900; }
-        .text-blue { color: #60a5fa; }
-        .text-pink { color: #f472b6; }
+        .panel-title { font-size: 22px; font-weight: 900; color:#0a1f44; }
+        
         .ribbon { position:absolute; top:14px; right:14px; width:10px; height:28px; border-radius: 6px; }
         .ribbon-blue { background: linear-gradient(180deg, #60a5fa, #22d3ee); }
         .ribbon-pink { background: linear-gradient(180deg, #f472b6, #a78bfa); }
@@ -560,7 +575,7 @@ export default function B2TechExpertise() {
         .sec-head { text-align:center; margin-bottom: 20px; }
         .sec-title {
           font-weight: 900; font-size: clamp(28px, 4vw, 44px);
-          background: linear-gradient(90deg, var(--brand), var(--brand)); -webkit-background-clip: text; color: transparent;
+          background: linear-gradient(90deg, var(--brand), var(--brand)); -webkit-background-clip: text; color: #0a1f44;
         }
         .sec-underline { width: 120px; height: 4px; background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-radius: 999px; margin: 10px auto 0; }
         .diff-grid { display:grid; gap: 16px; grid-template-columns: repeat(1, 1fr); max-width: 1180px; margin: 24px auto 0; }
@@ -578,12 +593,12 @@ export default function B2TechExpertise() {
         .hue-rose .medal { background: radial-gradient(circle at 30% 30%, rgba(244,63,94,.25), transparent 60%); color: #f43f5e; }
         .tile-top { display:flex; align-items:center; gap:10px; }
         .medal { width: 48px; height: 48px; border-radius: 12px; display:flex; align-items:center; justify-content:center; border: 1px solid var(--border); font-size: 22px; }
-        .tile-title { font-weight: 800; color: var(--ink); font-size: 16px; }
+        .tile-title { font-weight: 800; color: #00809D; font-size: 16px; }
         .tile-desc { color: var(--muted); font-size: 14px; line-height: 1.5; }
 
 
         /* ---------- Metrics ---------- */
-        .metrics-title { text-align:center; font-weight: 800; color: var(--ink); font-size: clamp(26px, 3.6vw, 40px); }
+        .metrics-title { text-align:center; font-weight: 800; color: #0a1f44; font-size: clamp(26px, 3.6vw, 40px); }
         .metrics-divider { width: 80px; height: 4px; background: linear-gradient(90deg, #22d3ee, #8b5cf6); border-radius: 999px; margin: 12px auto 24px; transform-origin:left; }
         .metric-card {
           max-width: 680px; margin: 0 auto; text-align:center; background: var(--surface);
@@ -603,14 +618,14 @@ export default function B2TechExpertise() {
           -webkit-background-clip: text; color: transparent; line-height: 1;
         }
         .metric-label { margin-top: 6px; font-weight: 700; color: var(--ink); }
-        .metric-note { margin-top: 8px; color: var(--muted); max-width: 520px; margin-left: auto; margin-right: auto; }
+        .metric-note { margin-top: 8px; color: #00809D; max-width: 520px; margin-left: auto; margin-right: auto; }
         .metric-foot { text-align:center; font-size: 18px; color: var(--muted); margin-top: 18px; }
 
 
         /* ---------- Footer ---------- */
         .footer-wrap { position: relative; overflow: hidden; border-radius: 22px; background: linear-gradient(180deg, #3730a3, #7c3aed); padding: 48px 18px; }
         .footer-head { text-align:center; margin-bottom: 16px; }
-        .footer-title { font-weight: 900; font-size: clamp(26px, 3.6vw, 42px); color: white; }
+        .footer-title { font-weight: 900; font-size: clamp(26px, 3.6vw, 42px); color: #0a1f44; }
         .brand-grad { background: linear-gradient(90deg, #a78bfa, #f0abfc); -webkit-background-clip: text; color: transparent; }
         .t-icon { margin-right: 8px; }
         .marquee-viewport { overflow: hidden; padding: 18px 0; }
@@ -635,7 +650,7 @@ export default function B2TechExpertise() {
         .cta-text { color: white; font-weight: 600; margin-bottom: 12px; }
         .cta-btn {
           display:inline-flex; gap: 8px; align-items:center; font-weight: 900;
-          background: white; color: #6d28d9; padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(0,0,0,.06);
+          background: white; color: #00809D; padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(0,0,0,.06);
         }
         .footnote { text-align:center; margin-top: 16px; color: #c7d2fe; font-size: 13px; }
 
