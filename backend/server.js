@@ -16,7 +16,7 @@ app.use(express.json());
 // Public routes
 app.use("/api/auth", authRoutes);
 app.use("/news", newrouter);
-const contactRoutes = require("./routes/contactRoutes");
+const contactRoutes = require("./Routes/contactRoutes");
 app.use("/api/contact", contactRoutes);
 
 // Protected route
