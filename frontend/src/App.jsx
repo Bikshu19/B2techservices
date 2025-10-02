@@ -7,9 +7,9 @@ import Contact from "./pages/Contact";
   /* About page*/
 }
 import Companyphilosophy from "./pages/About/AboutUs";
-import Corevalues from "./pages/About/FoundersVision";
-import Founder from "./pages/About/OurValues";
-import Growth from "./pages/About/Team";
+import Corevalues from "./pages/About/OurValues";
+import Founder from "./pages/About/Team";
+import Growth from "./pages/About/FoundersVision";
 {
   /* services page*/
 }

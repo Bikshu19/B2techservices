@@ -309,7 +309,7 @@ export default function TeamPage() {
               </div>
 
               <button className="bg-[#00809D] hover:bg-[#006b84] text-white px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
-                Partner With Us
+                <a href="/contact">Partner With Us</a>
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

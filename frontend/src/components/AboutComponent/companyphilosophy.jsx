@@ -71,7 +71,7 @@ export default function B2TechLanding() {
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <button className="bg-[#00809D] hover:bg-[#006b84] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center justify-center gap-2">
-                    Explore Services
+                    <a href="/recruitmentservice">Explore Services</a>
                     <svg
                       className="w-5 h-5"
                       fill="none"
@@ -87,7 +87,7 @@ export default function B2TechLanding() {
                     </svg>
                   </button>
                   <button className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300">
-                    Contact Us
+                    <a href="/contact">Contact Us</a>
                   </button>
                 </div>
               </div>
@@ -858,7 +858,7 @@ export default function B2TechLanding() {
               </div>
 
               <button className="w-full bg-white text-[#0a1f44] px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:bg-blue-50 shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center gap-2">
-                Explore Training Programs
+                <a href="/softwaretraining">Explore Training Programs</a>
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -890,10 +890,10 @@ export default function B2TechLanding() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-[#00809D] px-6 sm:px-10 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
-              Partner With Us
+              <a href="/resumeservices"> Partner With Us</a>
             </button>
             <button className="bg-[#0a1f44] text-white border-2 border-white px-6 sm:px-10 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:bg-[#0a1f44]/90">
-              Find Your Next Role
+              <a href="/founder">Find Your Next Role</a>
             </button>
           </div>
         </div>

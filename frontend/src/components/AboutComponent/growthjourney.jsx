@@ -381,7 +381,7 @@ export default function ValuesPage() {
             foundation for your future success.
           </p>
           <button className="bg-white text-[#00809D] px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-2xl">
-            Partner With Us Today
+            <a href="/contact">Partner With Us Today</a>
           </button>
         </div>
       </div>

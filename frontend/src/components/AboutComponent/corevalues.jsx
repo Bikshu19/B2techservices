@@ -456,7 +456,9 @@ export default function VisionPage() {
             </p>
 
             <button className="px-10 py-4 bg-[#00809D] text-white rounded-full text-lg font-black shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all inline-flex items-center gap-3 group">
-              <span>Start Your Journey</span>
+              <span>
+                <a href="/softwaretraining">Start Your Journey</a>
+              </span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

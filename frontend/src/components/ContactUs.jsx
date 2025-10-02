@@ -86,7 +86,7 @@ export default function ContactUs() {
               <Phone className="w-7 h-7 text-white" />
             </div>
             <h3 className="font-bold text-xl text-[#0a1f44] mb-2">Phone</h3>
-            <p className="text-gray-600 text-lg">+91 98765 43210</p>
+            <p className="text-gray-600 text-lg">+91-63640 53221</p>
             <p className="text-sm text-gray-500 mt-2">Mon-Fri 9AM-6PM IST</p>
           </div>
 
@@ -95,7 +95,10 @@ export default function ContactUs() {
               <MapPin className="w-7 h-7 text-white" />
             </div>
             <h3 className="font-bold text-xl text-[#0a1f44] mb-2">Location</h3>
-            <p className="text-gray-600 text-lg">Hyderabad, India</p>
+            <p className="text-gray-600 text-lg">
+              <strong>B2Tech Services </strong>
+              <br></br> 655, A Block, AECS Layout, Kudlu, Bangalore-560068
+            </p>
             <p className="text-sm text-gray-500 mt-2">Visit our office</p>
           </div>
 
