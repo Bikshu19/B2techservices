@@ -1,8 +1,14 @@
 import React from 'react'
-
+import Nav from "../../components/nav"
+import Training from "../../components/Training/training"
+import Footer from '../../components/Footer'
 function Softwaretrainingprograms() {
   return (
-    <div>Softwaretrainingprograms</div>
+    <div>
+      <Nav/>
+      <Training/>
+      <Footer/>
+    </div>
   )
 }
 
