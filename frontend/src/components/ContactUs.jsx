@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, Shield, CheckCircle } from "lucide-react";
+import {
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+} from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function ContactUs() {
   const [form, setForm] = useState({
@@ -98,7 +106,29 @@ export default function ContactUs() {
             <h3 className="font-bold text-xl text-[#0a1f44] mb-2">
               Social Media
             </h3>
-            <p className="text-gray-600">LinkedIn • Twitter • Instagram</p>
+            <div className="flex gap-5 mt-3 text-gray-600">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="w-6 h-6 hover:text-[#0077b5]" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter className="w-6 h-6 hover:text-[#1DA1F2]" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="w-6 h-6 hover:text-[#E4405F]" />
+              </a>
+            </div>
             <p className="text-sm text-gray-500 mt-2">Follow us for updates</p>
           </div>
         </div>
