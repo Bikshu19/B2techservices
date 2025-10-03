@@ -127,6 +127,9 @@ export default function B2TechExpertise() {
             className="filter-input bordered-input"
           />
         </div>
+        <div className="text-center info text-[13px]">
+          Click a Domain to display its Description
+        </div>
       </header>
 
       
@@ -383,6 +386,12 @@ export default function B2TechExpertise() {
           padding-top:30px;
           color:#0a1f44;
           font-weight:700;
+        }
+
+        .info{
+          padding-top:20px;
+          color:#00809D;
+          font-weight:500;
         }
 
         /* ---------- Domain Masonry Grid ---------- */
