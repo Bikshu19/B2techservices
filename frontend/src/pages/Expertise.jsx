@@ -83,7 +83,7 @@ function DomainCard({ domain }) {
         </div>
         
         {/* Back - Description */}
-        <div className="card-face card-back flex items-center justify-center p-6 rounded-3xl bg-brand-deep text-white">
+        <div className="card-face card-back flex items-center justify-center p-6 rounded-3xl text-white">
           <div className="description-content">
             <div className="back-icon">{domain.model}</div>
             <p className="domain-description">{domain.desc}</p>
@@ -527,6 +527,7 @@ export default function B2TechExpertise() {
 
         .card-back {
           transform: rotateY(180deg);
+          background-color:#00809D;
         }
 
 
@@ -632,7 +633,7 @@ export default function B2TechExpertise() {
 
 
         /* ---------- Footer ---------- */
-        .footer-wrap { position: relative; overflow: hidden; border-radius: 22px; background: linear-gradient(180deg, #3730a3, #7c3aed); padding: 48px 18px; }
+        .footer-wrap { position: relative; overflow: hidden; border-radius: 22px; background:#00809D; padding: 48px 18px; }
         .footer-head { text-align:center; margin-bottom: 16px; }
         .footer-title { font-weight: 900; font-size: clamp(26px, 3.6vw, 42px); color: #0a1f44; }
         .brand-grad { background: linear-gradient(90deg, #a78bfa, #f0abfc); -webkit-background-clip: text; color: transparent; }
